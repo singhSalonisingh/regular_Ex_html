@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+   <script>
+    /*
+    function formValidation(){
+        var uid=document.getElementById("uidfid").value;
+        if(uid.length<5 || uid.length>15){
+            document.getElementById("uidfid").value="";
+            alert("length should be 5 to 15")
+        }
+        capsflag =false;
+        lowerflag=false;
+        speflag=false;
+         for(i=0 ;i<uid.length; i++){
+            var ascii = uid.charCodeAt(i);
+            if(ascii >= 65 && ascii <= 90)
+            capsflag = true;
+                if(ascii >= 90 && ascii <= 122)
+                lowerflag = true;
+              //  if(!((ascii >= 65 && ascii <= 90)||(ascii >= 97 && ascii <= 122)||(ascii >= 48 && ascii <= 57)))        
+              //      speflag = true;
+         }
+         if(capsflag== false || lowerflag == false  )
+            {
+                document.getElementById("uidfid").value = "";
+                alert("user name should be caps or lower");
+                return;
+            }
+            */
+
+            
+          
+           function formValidReg(){
+            var uid = document.getElementById("uidfid").value;
+            alert(uid)
+            var pattern = /^[A-Za-z\.-]{6,12}$/;
+            if(!pattern.test(uid)) {
+                document.getElementById("uidfid").value = "";
+                alert("uid should contain 6 to 12 and caps lower dot");
+                return; 
+            }
+
+            //FOR PASSWORD
+
+            var pwd = document.getElementById("pwdfld").value;
+            alert(pwd)
+            if(pwd.length < 8 || pwd.length > 12){
+                document.getElementById("pwdfld").value = "";
+                alert("pwd length should be 8 to 12");
+                return;
+            }
+            var numflag=false;
+            var spflag=false;
+            var capital= false;
+            for(i=0;i<pwd.length;i++){
+                var ascii = pwd.charCodeAt(i);
+                if(ascii >= 65 && ascii <= 90)
+                    capital = true;
+                if(ascii >= 48 && ascii <= 57)
+                    numflag = true;
+                if(!((ascii >= 65 && ascii <= 90)||(ascii >= 97 && ascii <= 122)||(ascii >= 48 && ascii <= 57)))        
+                    spflag = true
+            }
+            if(numflag == false || spflag == false || capital == false)
+            {
+                document.getElementById("pwdfld").value = "";
+                alert("Password is invalid");
+                return;
+            }
+    }
+ 
+   </script>
+</head>
+<body>
+    <table >
+    <form action="" method="">
+        <tr>
+      <td> <label for=" ">uid:</label></td> 
+       <td><input type="text" name="uid"  id="uidfid"/> </td> <br/>
+    </tr>
+    <tr>
+       <td> <label for=" ">pwd:</label></td>
+       <td> <input type="password" name="pwd" id="pwdfld"/></td>
+        <br/>
+    </tr>
+      <td> <input type="button" value="login" onclick="formValidReg()"/></td> 
+       <td> <input type="reset" value="clear"/></td>
+    </form>
+</table>
+</body>
+</html>

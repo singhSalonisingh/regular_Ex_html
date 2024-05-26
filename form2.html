@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+    <title>form2</title>
+    <script>
+function validate(){
+var email=document.getElementById("emailid").value;
+    var pemail=/[\w#\-\.]{3,20}@[\w]{4,10}\.[a-z]{2,3}$/;
+    if(!pemail.test(email)){
+        document.getElementById("emailid").value = "";
+        alert("Invalid email...");
+        return; 
+    }
+
+    var radio= document.f1.radio.value;
+    if(radio==""){
+        alert("select radio button..");
+        return;
+    }
+
+    var occ=document.getElementById("occ");
+    if(occ.value=="select one.."){
+        alert("select any one in occupation..");
+        return;
+    }
+
+
+    //var ddlFruits = document.getElementById("ddlFruits");
+   // if (ddlFruits.value == "") {
+            //If the "Please Select" option is selected display error.
+     //       alert("Please select an option!");
+       //     return false;
+}
+    </script>
+    
+</head>
+<body>
+    <table border="1" cellpadding="0" cellspacing="0">
+        <form name="f1">
+            <tr>
+             <td colspan="2">  <textarea rows="5" cols="40" name="text"> Visiter Information </textarea></td>
+              </tr>
+            <tr>
+                <td colspan="2">Email address:
+                    <input type="text" id="emailid" name="text"/>
+                </td>
+               
+            </tr>
+            <tr>
+                <td>Do You use Web for: </td>
+                <td><input type="checkbox" value="research"/> Research
+                    <input type="checkbox" value="purchase"/> Purchase
+                </td>
+            </tr>
+
+            <tr>
+                <td> Occupation: </td> 
+                <td> <select name="ocuupation" id="occ" >
+                    <option> select one..</option>
+                    <option>Programmer</option>
+                    <option>Student</option></select>
+                </td>  
+            </tr>
+
+            <tr>
+                <td>Want us to send you junk email?: </td>
+                <td><input type="radio" value="R" name="radio"/> Absolutely
+                    <input type="radio" value="P" name="radio"/>No way
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;"> <input type="button" value="SUBMIT" onclick="validate()"/></td> 
+                <td> <input type="reset" value="RESET"/></td>  
+            </tr>
+            
+
+
+        </form>
+    </table>
+</body>
+</html>
